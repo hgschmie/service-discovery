@@ -15,6 +15,9 @@
  */
 package com.nesscomputing.jms.activemq;
 
+import static java.lang.String.format;
+
+import java.io.File;
 import java.util.UUID;
 
 import javax.jms.Connection;
@@ -25,10 +28,14 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
-
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.broker.BrokerFactory;
+import org.apache.activemq.broker.BrokerRegistry;
+import org.apache.activemq.broker.BrokerService;
 import org.apache.commons.lang3.ObjectUtils;
+import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.google.common.collect.ImmutableMap;
@@ -36,6 +43,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.config.ConfigModule;
 import com.nesscomputing.jms.JmsModule;
@@ -44,8 +52,12 @@ import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
 import com.nesscomputing.service.discovery.testing.client.MockedReadOnlyDiscoveryClient;
 import com.nesscomputing.testing.lessio.AllowDNSResolution;
+import com.nesscomputing.testing.lessio.AllowLocalFileAccess;
+import com.nesscomputing.testing.lessio.AllowNetworkListen;
 
 @AllowDNSResolution
+@AllowNetworkListen(ports={0})
+@AllowLocalFileAccess(paths={"%TMP_DIR%"})
 public class ServiceDiscoveryTransportFactoryTest {
     private static final String QNAME = "disco-test-queue";
     private static final Log LOG = Log.findLog();
@@ -55,10 +67,36 @@ public class ServiceDiscoveryTransportFactoryTest {
     @Named("test")
     ConnectionFactory factory;
 
+    private static String BROKER_URI = null;
+    private static BrokerService BROKER_SERVICE = null;
+
+    @BeforeClass
+    public static void startBroker() throws Exception
+    {
+        String uri = format("broker:(vm://disco-test-broker-%s)?persistent=false&useJmx=false", UUID.randomUUID().toString());
+        BROKER_SERVICE = BrokerFactory.createBroker(uri, false);
+        BROKER_SERVICE.setTmpDataDirectory(new File(System.getProperty("java.io.tmpdir")));
+
+        BROKER_SERVICE.start();
+
+        BrokerRegistry.getInstance().bind("localhost", BROKER_SERVICE);
+
+        BROKER_URI = "vm:" + uri;
+    }
+
+    @AfterClass
+    public static void shutdownBroker() throws Exception
+    {
+        Assert.assertNotNull(BROKER_SERVICE);
+        BROKER_SERVICE.stop();
+        BROKER_SERVICE = null;
+    }
+
+
     @Test
     public void testDiscoveryUri() throws Exception {
         final ServiceInformation vmbrokerInfo = new ServiceInformation("vmbroker", null, UUID.randomUUID(),
-                ImmutableMap.of("uri", "vm://disco-test-broker-" + uniqueId));
+                ImmutableMap.of("uri", BROKER_URI));
 
         final Config config = Config.getFixedConfig(ImmutableMap.of("ness.jms.connection-url", "srvc://vmbroker?discoveryId=%s"));
 
@@ -77,7 +115,7 @@ public class ServiceDiscoveryTransportFactoryTest {
             }
         }).injectMembers(this);
 
-        final ConnectionFactory directFactory = new ActiveMQConnectionFactory("vm://disco-test-broker-" + uniqueId + "?broker.persistent=false");
+        final ConnectionFactory directFactory = new ActiveMQConnectionFactory(BROKER_URI);
 
         final Connection directConnection = directFactory.createConnection();
         directConnection.start();

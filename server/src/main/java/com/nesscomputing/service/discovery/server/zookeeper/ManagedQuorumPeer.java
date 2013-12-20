@@ -15,17 +15,17 @@
  */
 package com.nesscomputing.service.discovery.server.zookeeper;
 
+import com.google.inject.Inject;
+
 import com.nesscomputing.lifecycle.Lifecycle;
 import com.nesscomputing.lifecycle.LifecycleListener;
 import com.nesscomputing.lifecycle.LifecycleStage;
 
-import org.apache.zookeeper.server.NIOServerCnxn;
+import org.apache.zookeeper.server.NIOServerCnxnFactory;
 import org.apache.zookeeper.server.ZKDatabase;
 import org.apache.zookeeper.server.persistence.FileTxnSnapLog;
 import org.apache.zookeeper.server.quorum.QuorumPeer;
 import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
-
-import com.google.inject.Inject;
 
 /**
  * Clustered, quorum peered Zookeeper server. This is used for production.
@@ -36,7 +36,7 @@ public class ManagedQuorumPeer
 
     @Inject
     ManagedQuorumPeer(final QuorumPeerConfig quorumPeerConfig,
-                      final NIOServerCnxn.Factory cnxnFactory,
+                      final NIOServerCnxnFactory cnxnFactory,
                       final FileTxnSnapLog fileTxnSnapLog)
     {
         quorumPeer = new QuorumPeer();

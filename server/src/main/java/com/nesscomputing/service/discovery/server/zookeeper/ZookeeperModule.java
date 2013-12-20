@@ -18,19 +18,20 @@ package com.nesscomputing.service.discovery.server.zookeeper;
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.ConfigurationConverter;
-import org.apache.zookeeper.server.NIOServerCnxn;
-import org.apache.zookeeper.server.persistence.FileTxnSnapLog;
-import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
-import org.apache.zookeeper.server.quorum.QuorumPeerConfig.ConfigException;
-
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.logging.Log;
+
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.ConfigurationConverter;
+import org.apache.zookeeper.server.NIOServerCnxnFactory;
+import org.apache.zookeeper.server.persistence.FileTxnSnapLog;
+import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
+import org.apache.zookeeper.server.quorum.QuorumPeerConfig.ConfigException;
 
 /**
  * Brings up a zookeeper server, guice style.
@@ -82,9 +83,11 @@ public class ZookeeperModule extends AbstractModule
 
     @Provides
     @Singleton
-    public NIOServerCnxn.Factory getConnectionFactory(final QuorumPeerConfig quorumPeerConfig) throws IOException
+    public NIOServerCnxnFactory getConnectionFactory(final QuorumPeerConfig quorumPeerConfig) throws IOException
     {
-        return new NIOServerCnxn.Factory(quorumPeerConfig.getClientPortAddress(), quorumPeerConfig.getMaxClientCnxns());
+        final NIOServerCnxnFactory factory = new DiscoveryServerCnxnFactory();
+        factory.configure(quorumPeerConfig.getClientPortAddress(), quorumPeerConfig.getMaxClientCnxns());
+        return factory;
     }
 
     @Provides
@@ -92,5 +95,17 @@ public class ZookeeperModule extends AbstractModule
     public FileTxnSnapLog getFileTxnSnapLog(final QuorumPeerConfig quorumPeerConfig) throws IOException
     {
         return new FileTxnSnapLog(new File(quorumPeerConfig.getDataLogDir()), new File(quorumPeerConfig.getDataDir()));
+    }
+
+    private static class DiscoveryServerCnxnFactory extends NIOServerCnxnFactory
+    {
+        DiscoveryServerCnxnFactory() throws IOException
+        {
+        }
+
+        protected void configureSaslLogin() throws IOException
+        {
+            // fuck this shit.
+        }
     }
 }

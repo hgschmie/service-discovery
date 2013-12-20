@@ -15,19 +15,19 @@
  */
 package com.nesscomputing.service.discovery.server.zookeeper;
 
+import java.io.IOException;
+
+import com.google.common.base.Throwables;
+import com.google.inject.Inject;
+
 import com.nesscomputing.lifecycle.Lifecycle;
 import com.nesscomputing.lifecycle.LifecycleListener;
 import com.nesscomputing.lifecycle.LifecycleStage;
 
-import java.io.IOException;
-
-import org.apache.zookeeper.server.NIOServerCnxn;
+import org.apache.zookeeper.server.NIOServerCnxnFactory;
 import org.apache.zookeeper.server.ZooKeeperServer;
 import org.apache.zookeeper.server.persistence.FileTxnSnapLog;
 import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
-
-import com.google.common.base.Throwables;
-import com.google.inject.Inject;
 
 /**
  * Single node, standalone zookeeper server. Should be only used for testing.
@@ -35,11 +35,11 @@ import com.google.inject.Inject;
 public class ManagedStandaloneZookeeper
 {
     private final ZooKeeperServer zookeeperServer;
-    private final NIOServerCnxn.Factory cnxnFactory;
+    private final NIOServerCnxnFactory cnxnFactory;
 
     @Inject
     ManagedStandaloneZookeeper(final QuorumPeerConfig quorumPeerConfig,
-                               final NIOServerCnxn.Factory cnxnFactory,
+                               final NIOServerCnxnFactory cnxnFactory,
                                final FileTxnSnapLog fileTxnSnapLog)
     {
         zookeeperServer = new ZooKeeperServer();
