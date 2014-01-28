@@ -18,14 +18,13 @@ package com.nesscomputing.service.discovery.client.internal;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+
 import com.nesscomputing.lifecycle.Lifecycle;
 import com.nesscomputing.lifecycle.LifecycleListener;
 import com.nesscomputing.lifecycle.LifecycleStage;
@@ -33,6 +32,8 @@ import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
 import com.nesscomputing.service.discovery.client.DiscoveryClientModule;
 import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Read-only service discovery client. Supports service lookup using the zookeeper implementation.

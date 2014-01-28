@@ -25,8 +25,6 @@ import com.google.inject.Inject;
 import com.google.inject.Module;
 import com.google.inject.Scopes;
 
-import org.joda.time.Duration;
-
 import com.nesscomputing.config.Config;
 import com.nesscomputing.config.ConfigProvider;
 import com.nesscomputing.lifecycle.LifecycleStage;
@@ -47,6 +45,8 @@ import com.nesscomputing.service.discovery.server.resources.StateOfTheWorldResou
 import com.nesscomputing.service.discovery.server.resources.StaticAnnouncementResource;
 import com.nesscomputing.service.discovery.server.zookeeper.ZookeeperCleanupJob;
 import com.nesscomputing.service.discovery.server.zookeeper.ZookeeperModule;
+
+import org.joda.time.Duration;
 
 /**
  * Discovery Server main class.

@@ -23,18 +23,19 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.URI;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.google.common.base.Throwables;
 import com.google.common.io.Files;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.server.StandaloneServer;
-import com.nesscomputing.testing.lessio.AllowLocalFileAccess;
-import com.nesscomputing.testing.lessio.AllowNetworkAccess;
-import com.nesscomputing.testing.lessio.AllowNetworkListen;
 
-@AllowLocalFileAccess(paths={"%TMP_DIR%"})
+import org.junit.Assert;
+import org.junit.Test;
+import org.kitei.testing.lessio.AllowTmpDirAccess;
+import org.kitei.testing.lessio.AllowNetworkAccess;
+import org.kitei.testing.lessio.AllowNetworkListen;
+
+@AllowTmpDirAccess
 @AllowNetworkListen(ports={0,12345})
 @AllowNetworkAccess(endpoints={"127.0.0.1:12345"})
 public class TestDiscoveryServerMain
@@ -90,7 +91,9 @@ public class TestDiscoveryServerMain
         }
         finally {
             try {
-                socket.close();
+                if (socket != null) {
+                    socket.close();
+                }
             } catch (IOException ioe) {
                 // GNDN
             }

@@ -23,16 +23,17 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.inject.Singleton;
+
 import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceHint;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
 import com.nesscomputing.service.discovery.client.ServiceNotAvailableException;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Base class for service discovery. Supplies all the meat to build a read-only

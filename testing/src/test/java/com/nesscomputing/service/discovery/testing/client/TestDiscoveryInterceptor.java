@@ -20,17 +20,13 @@ import java.net.URI;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.Assert;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.name.Named;
+
 import com.nesscomputing.config.ConfigModule;
 import com.nesscomputing.httpclient.HttpClient;
 import com.nesscomputing.httpclient.HttpClientRequest;
@@ -41,6 +37,10 @@ import com.nesscomputing.lifecycle.guice.LifecycleModule;
 import com.nesscomputing.service.discovery.client.DiscoveryClient;
 import com.nesscomputing.service.discovery.client.DiscoveryServiceInterceptor;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author christopher

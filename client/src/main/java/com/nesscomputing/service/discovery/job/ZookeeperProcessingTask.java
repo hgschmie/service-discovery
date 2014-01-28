@@ -20,14 +20,15 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import com.google.common.base.Preconditions;
+
+import com.nesscomputing.logging.Log;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
-
-import com.google.common.base.Preconditions;
-import com.nesscomputing.logging.Log;
 
 /**
  * Driver task to maintain a zookeeper connection and execute work on it. Handles connection

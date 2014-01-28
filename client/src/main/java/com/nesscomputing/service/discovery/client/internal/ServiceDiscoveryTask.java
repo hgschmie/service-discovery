@@ -20,10 +20,10 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
+
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
-
-import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
 
 /**
  * Base class for a task run by the main service discovery thread.

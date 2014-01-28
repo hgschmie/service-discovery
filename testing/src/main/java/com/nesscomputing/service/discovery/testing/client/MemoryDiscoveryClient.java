@@ -20,11 +20,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimaps;
 import com.google.inject.Singleton;
+
 import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.DiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceInformation;

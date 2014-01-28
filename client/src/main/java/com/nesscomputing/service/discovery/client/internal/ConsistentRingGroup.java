@@ -23,13 +23,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import com.nesscomputing.service.discovery.client.ServiceInformation;
+
+import org.apache.commons.lang3.StringUtils;
 
 /** A group of servers, partitioned into rings by their service type, which provide a particular service.
  *

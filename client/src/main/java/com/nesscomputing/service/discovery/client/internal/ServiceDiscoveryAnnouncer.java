@@ -26,15 +26,15 @@ import java.util.concurrent.atomic.AtomicLong;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
 
+import com.nesscomputing.logging.Log;
+import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
+import com.nesscomputing.service.discovery.client.ServiceInformation;
+
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.KeeperException.Code;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
-
-import com.nesscomputing.logging.Log;
-import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
-import com.nesscomputing.service.discovery.client.ServiceInformation;
 
 /**
  * Maintains the local announcements on the central service discovery directory and ensures that they are present even

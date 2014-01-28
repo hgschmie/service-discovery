@@ -17,10 +17,9 @@ package com.nesscomputing.service.discovery.announce;
 
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
+
 import com.nesscomputing.galaxy.GalaxyConfig;
 import com.nesscomputing.galaxy.GalaxyIp;
 import com.nesscomputing.httpserver.GalaxyHttpServerConfig;
@@ -28,6 +27,8 @@ import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.DiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceAnnouncer;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Announces HTTP and HTTPS services based off the Galaxy configuration and

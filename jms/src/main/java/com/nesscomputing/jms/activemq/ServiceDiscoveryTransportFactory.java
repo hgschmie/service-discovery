@@ -25,6 +25,17 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentMap;
 
+import com.google.common.base.Function;
+import com.google.common.base.Joiner;
+import com.google.common.base.Preconditions;
+import com.google.common.base.Throwables;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Maps;
+
+import com.nesscomputing.logging.Log;
+import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
+import com.nesscomputing.service.discovery.client.ServiceInformation;
+
 import net.sf.cglib.proxy.Enhancer;
 
 import org.apache.activemq.transport.Transport;
@@ -33,16 +44,6 @@ import org.apache.activemq.transport.TransportServer;
 import org.apache.activemq.util.URISupport;
 import org.apache.activemq.wireformat.WireFormat;
 import org.apache.commons.lang3.StringUtils;
-
-import com.google.common.base.Function;
-import com.google.common.base.Joiner;
-import com.google.common.base.Preconditions;
-import com.google.common.base.Throwables;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Maps;
-import com.nesscomputing.logging.Log;
-import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
-import com.nesscomputing.service.discovery.client.ServiceInformation;
 
 /**
  * Handle srvc:// URIs by doing discovery and turning them into a failover transport.

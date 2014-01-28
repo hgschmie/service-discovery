@@ -24,15 +24,15 @@ import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import org.apache.commons.configuration.AbstractConfiguration;
-import org.apache.commons.lang3.StringUtils;
-
 import com.nesscomputing.config.Config;
 import com.nesscomputing.lifecycle.LifecycleStage;
 import com.nesscomputing.lifecycle.guice.OnStage;
 import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.DiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
+
+import org.apache.commons.configuration.AbstractConfiguration;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Create static announcements from configuration.  Useful to announce resources that do not change very often,

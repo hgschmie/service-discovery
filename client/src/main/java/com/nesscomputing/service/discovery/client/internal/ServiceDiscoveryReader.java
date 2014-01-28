@@ -29,13 +29,13 @@ import com.google.common.base.Charsets;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-import org.apache.zookeeper.AsyncCallback.DataCallback;
-import org.apache.zookeeper.ZooKeeper;
-import org.apache.zookeeper.data.Stat;
-
 import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
+
+import org.apache.zookeeper.AsyncCallback.DataCallback;
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
 
 /**
  * Reads the current list of service announcements from Zookeeper and updates the

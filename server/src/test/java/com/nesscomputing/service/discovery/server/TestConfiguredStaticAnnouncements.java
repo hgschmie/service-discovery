@@ -16,6 +16,7 @@
 package com.nesscomputing.service.discovery.server;
 
 import static java.lang.String.format;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -34,12 +35,6 @@ import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Stage;
 
-import org.apache.commons.configuration.MapConfiguration;
-import org.apache.commons.configuration.SystemConfiguration;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import com.nesscomputing.config.Config;
 import com.nesscomputing.config.ConfigModule;
 import com.nesscomputing.jackson.NessJacksonModule;
@@ -52,11 +47,17 @@ import com.nesscomputing.service.discovery.client.DiscoveryClientModule;
 import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
 import com.nesscomputing.service.discovery.client.ServiceNotAvailableException;
-import com.nesscomputing.testing.lessio.AllowLocalFileAccess;
-import com.nesscomputing.testing.lessio.AllowNetworkAccess;
-import com.nesscomputing.testing.lessio.AllowNetworkListen;
 
-@AllowLocalFileAccess(paths={"%TMP_DIR%"})
+import org.apache.commons.configuration.MapConfiguration;
+import org.apache.commons.configuration.SystemConfiguration;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.kitei.testing.lessio.AllowTmpDirAccess;
+import org.kitei.testing.lessio.AllowNetworkAccess;
+import org.kitei.testing.lessio.AllowNetworkListen;
+
+@AllowTmpDirAccess
 @AllowNetworkListen(ports={0})
 @AllowNetworkAccess(endpoints= {"127.0.0.1:0"})
 public class TestConfiguredStaticAnnouncements
@@ -182,7 +183,9 @@ public class TestConfiguredStaticAnnouncements
         }
         finally {
             try {
-                socket.close();
+                if (socket != null) {
+                    socket.close();
+                }
             } catch (final IOException ioe) {
                 // GNDN
             }

@@ -18,6 +18,7 @@ package com.nesscomputing.service.discovery.httpserver;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.galaxy.GalaxyConfigModule;
 import com.nesscomputing.httpserver.HttpServerModule;

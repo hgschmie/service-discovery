@@ -22,11 +22,11 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.nesscomputing.jms.JmsUriInterceptor;
 import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Replace the single format specifier in a srvc:// URI with the unique ID specifying which

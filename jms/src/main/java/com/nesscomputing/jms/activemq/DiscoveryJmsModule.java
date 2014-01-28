@@ -18,6 +18,7 @@ package com.nesscomputing.jms.activemq;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.multibindings.Multibinder;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.config.ConfigProvider;
 import com.nesscomputing.jms.JmsUriInterceptor;

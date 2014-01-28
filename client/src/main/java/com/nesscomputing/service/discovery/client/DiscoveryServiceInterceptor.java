@@ -22,6 +22,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
+
 import com.nesscomputing.httpclient.HttpClientObserver;
 import com.nesscomputing.httpclient.HttpClientRequest;
 import com.nesscomputing.httpclient.internal.HttpClientHeader;

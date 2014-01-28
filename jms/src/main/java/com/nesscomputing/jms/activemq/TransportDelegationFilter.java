@@ -17,16 +17,17 @@ package com.nesscomputing.jms.activemq;
 
 import java.lang.reflect.Method;
 
-import org.apache.activemq.transport.Transport;
-
 import com.google.common.base.Throwables;
+
 import com.nesscomputing.logging.Log;
 
-import net.sf.cglib.proxy.Dispatcher;
 import net.sf.cglib.proxy.Callback;
 import net.sf.cglib.proxy.CallbackFilter;
+import net.sf.cglib.proxy.Dispatcher;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+
+import org.apache.activemq.transport.Transport;
 
 /**
  * CGLIB filter which ignores all methods that are on a specified interface

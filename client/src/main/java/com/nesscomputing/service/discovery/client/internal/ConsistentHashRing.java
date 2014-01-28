@@ -28,9 +28,9 @@ import java.util.SortedMap;
 
 import javax.annotation.concurrent.Immutable;
 
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import com.nesscomputing.service.discovery.client.ServiceInformation;
 
 /** Data structure that can be used to efficiently find the correct server

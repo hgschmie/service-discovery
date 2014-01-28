@@ -15,11 +15,11 @@
  */
 package com.nesscomputing.service.discovery.client.internal;
 
-import com.google.common.base.Throwables;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.zip.CRC32;
+
+import com.google.common.base.Throwables;
 
 /** This file has been copied from the spymemcached source tree.
  *

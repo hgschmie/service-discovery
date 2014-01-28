@@ -16,15 +16,16 @@
 package com.nesscomputing.service.discovery.announce;
 
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
 import com.nesscomputing.httpserver.HttpConnector;
 import com.nesscomputing.httpserver.HttpServer;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
 import com.nesscomputing.service.discovery.client.ServiceInformationBuilder;
+
+import org.apache.commons.lang3.StringUtils;
 
 @Singleton
 public class ServiceAnnouncementFactory {

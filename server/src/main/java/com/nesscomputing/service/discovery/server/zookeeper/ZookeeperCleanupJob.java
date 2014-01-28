@@ -15,8 +15,6 @@
  */
 package com.nesscomputing.service.discovery.server.zookeeper;
 
-import com.nesscomputing.logging.Log;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -26,15 +24,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
+import com.google.inject.Inject;
+
+import com.nesscomputing.logging.Log;
+
 import org.apache.zookeeper.server.persistence.FileTxnSnapLog;
 import org.apache.zookeeper.server.persistence.Util;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
-import com.google.inject.Inject;
 
 /**
  * Periodic job cleaning out the data and log directories. Taken from org.apache.zookeeper.server.PurgeTxnLog and then sanitized.

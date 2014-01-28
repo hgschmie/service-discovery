@@ -19,19 +19,17 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+
+import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
+import com.nesscomputing.service.discovery.client.ServiceInformation;
+import com.nesscomputing.service.discovery.client.ServiceNotAvailableException;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
-import com.nesscomputing.service.discovery.client.ServiceInformation;
-import com.nesscomputing.service.discovery.client.ServiceNotAvailableException;
-import com.nesscomputing.service.discovery.client.internal.ConsistentRingGroup;
-import com.nesscomputing.service.discovery.client.internal.DiscoveryClientImpl;
 
 /**
  * Tests with a single service in the map.

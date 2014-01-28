@@ -20,11 +20,11 @@ import java.net.URISyntaxException;
 
 import javax.annotation.Nonnull;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
+import org.apache.commons.lang3.StringUtils;
 
 
 /**

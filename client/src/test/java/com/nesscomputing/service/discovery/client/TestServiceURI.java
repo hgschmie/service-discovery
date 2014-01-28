@@ -18,8 +18,6 @@ package com.nesscomputing.service.discovery.client;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.nesscomputing.service.discovery.client.ServiceURI;
-
 public class TestServiceURI
 {
     @Test

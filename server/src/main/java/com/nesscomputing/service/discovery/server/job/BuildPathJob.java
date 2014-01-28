@@ -15,11 +15,10 @@
  */
 package com.nesscomputing.service.discovery.server.job;
 
-import com.nesscomputing.logging.Log;
-import com.nesscomputing.service.discovery.job.ZookeeperJob;
-
 import java.io.IOException;
 
+import com.nesscomputing.logging.Log;
+import com.nesscomputing.service.discovery.job.ZookeeperJob;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.zookeeper.CreateMode;

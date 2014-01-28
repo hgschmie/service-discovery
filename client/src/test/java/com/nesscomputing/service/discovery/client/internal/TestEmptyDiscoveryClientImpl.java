@@ -18,16 +18,14 @@ package com.nesscomputing.service.discovery.client.internal;
 import java.util.List;
 import java.util.Map;
 
+import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
+import com.nesscomputing.service.discovery.client.ServiceInformation;
+import com.nesscomputing.service.discovery.client.ServiceNotAvailableException;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
-import com.nesscomputing.service.discovery.client.ServiceInformation;
-import com.nesscomputing.service.discovery.client.ServiceNotAvailableException;
-import com.nesscomputing.service.discovery.client.internal.DiscoveryClientImpl;
 
 public class TestEmptyDiscoveryClientImpl
 {

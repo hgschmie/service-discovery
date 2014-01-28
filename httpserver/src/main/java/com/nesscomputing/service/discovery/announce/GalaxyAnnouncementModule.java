@@ -15,12 +15,13 @@
  */
 package com.nesscomputing.service.discovery.announce;
 
-import org.apache.commons.lang3.ObjectUtils;
-
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
+
 import com.nesscomputing.config.Config;
+
+import org.apache.commons.lang3.ObjectUtils;
 
 /**
  * Install the Galaxy Announcer to automatically services from the galaxy config to service discovery.

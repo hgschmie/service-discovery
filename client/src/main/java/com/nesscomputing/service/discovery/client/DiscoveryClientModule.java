@@ -19,11 +19,6 @@ import java.net.InetSocketAddress;
 import java.util.Iterator;
 import java.util.Map;
 
-
-import org.apache.commons.configuration.Configuration;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -36,12 +31,17 @@ import com.google.inject.binder.LinkedBindingBuilder;
 import com.google.inject.multibindings.Multibinder;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.config.ConfigProvider;
 import com.nesscomputing.httpclient.guice.HttpClientModule;
 import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.internal.DiscoveryClientImpl;
 import com.nesscomputing.service.discovery.client.internal.ReadOnlyDiscoveryClientImpl;
+
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Module for the client side of service discovery.

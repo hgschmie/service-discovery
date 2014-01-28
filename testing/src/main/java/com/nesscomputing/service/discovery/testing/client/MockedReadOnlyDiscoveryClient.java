@@ -18,10 +18,10 @@ package com.nesscomputing.service.discovery.testing.client;
 import java.util.List;
 import java.util.Map;
 
-
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
 import com.nesscomputing.service.discovery.client.internal.AbstractDiscoveryClient;

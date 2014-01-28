@@ -17,12 +17,12 @@ package com.nesscomputing.service.discovery.announce;
 
 import java.net.URI;
 
+import com.nesscomputing.config.Config;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.nesscomputing.config.Config;
 
 public class TestGalaxyAnnouncementModule
 {

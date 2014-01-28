@@ -24,11 +24,11 @@ import java.net.ServerSocket;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Throwables;
 
+import com.nesscomputing.service.discovery.client.internal.DiscoveryClientImpl;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.nesscomputing.service.discovery.client.internal.DiscoveryClientImpl;
-import com.nesscomputing.testing.lessio.AllowNetworkListen;
+import org.kitei.testing.lessio.AllowNetworkListen;
 
 @AllowNetworkListen(ports={0})
 public class TestServiceDiscovery

@@ -21,17 +21,15 @@ package com.nesscomputing.service.discovery.client.internal;
 import java.util.List;
 import java.util.UUID;
 
-import org.junit.Assert;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.junit.Before;
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import com.nesscomputing.service.discovery.client.ServiceInformation;
-import com.nesscomputing.service.discovery.client.internal.ConsistentHashRing;
-import com.nesscomputing.service.discovery.client.internal.ConsistentRingGroup;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author christopher

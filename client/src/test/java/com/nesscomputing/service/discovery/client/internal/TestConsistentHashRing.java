@@ -22,14 +22,13 @@ package com.nesscomputing.service.discovery.client.internal;
 import java.util.List;
 import java.util.UUID;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+
+import com.nesscomputing.service.discovery.client.ServiceInformation;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.nesscomputing.service.discovery.client.ServiceInformation;
-import com.nesscomputing.service.discovery.client.internal.ConsistentHashRing;
 
 /**
  * @author christopher

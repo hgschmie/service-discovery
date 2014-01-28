@@ -16,11 +16,6 @@
 package com.nesscomputing.service.discovery.job;
 
 import static java.lang.String.format;
-import com.nesscomputing.lifecycle.Lifecycle;
-import com.nesscomputing.lifecycle.LifecycleListener;
-import com.nesscomputing.lifecycle.LifecycleStage;
-import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
-import com.nesscomputing.service.discovery.client.DiscoveryClientModule;
 
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -32,13 +27,18 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 
-
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.ZooKeeper;
-
 import com.google.common.base.Throwables;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+
+import com.nesscomputing.lifecycle.Lifecycle;
+import com.nesscomputing.lifecycle.LifecycleListener;
+import com.nesscomputing.lifecycle.LifecycleStage;
+import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
+import com.nesscomputing.service.discovery.client.DiscoveryClientModule;
+
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.ZooKeeper;
 
 /**
  * Accept jobs to be run on top of zookeeper and executes them.

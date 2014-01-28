@@ -18,10 +18,6 @@ package com.nesscomputing.service.discovery.httpserver;
 import java.net.InetSocketAddress;
 import java.util.Map;
 
-
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
@@ -29,6 +25,7 @@ import com.google.inject.Injector;
 import com.google.inject.Stage;
 import com.google.inject.TypeLiteral;
 import com.google.inject.util.Modules;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.config.ConfigModule;
 import com.nesscomputing.httpserver.HttpServerModule;
@@ -38,6 +35,9 @@ import com.nesscomputing.lifecycle.guice.LifecycleModule;
 import com.nesscomputing.service.discovery.announce.GalaxyAnnouncementModule;
 import com.nesscomputing.service.discovery.announce.GalaxyAnnouncer;
 import com.nesscomputing.service.discovery.client.DiscoveryClientModule;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public class TestGalaxyAnnouncement
 {

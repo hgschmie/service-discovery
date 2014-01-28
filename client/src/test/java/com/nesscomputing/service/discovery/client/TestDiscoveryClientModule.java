@@ -21,18 +21,18 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.Map;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.google.inject.Binder;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.Module;
 import com.google.inject.TypeLiteral;
+
 import com.nesscomputing.config.Config;
 import com.nesscomputing.jackson.NessJacksonModule;
-import com.nesscomputing.service.discovery.client.DiscoveryClientModule;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public class TestDiscoveryClientModule
 {

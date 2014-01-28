@@ -26,13 +26,13 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
+
 import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Returns the state of the world as a JSON array. Can be limited by serviceName and serviceType.

@@ -18,6 +18,7 @@ package com.nesscomputing.jms.activemq;
 import static java.lang.String.format;
 
 import java.io.File;
+import java.util.Objects;
 import java.util.UUID;
 
 import javax.jms.Connection;
@@ -27,16 +28,6 @@ import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.broker.BrokerFactory;
-import org.apache.activemq.broker.BrokerRegistry;
-import org.apache.activemq.broker.BrokerService;
-import org.apache.commons.lang3.ObjectUtils;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.AbstractModule;
@@ -51,13 +42,22 @@ import com.nesscomputing.logging.Log;
 import com.nesscomputing.service.discovery.client.ReadOnlyDiscoveryClient;
 import com.nesscomputing.service.discovery.client.ServiceInformation;
 import com.nesscomputing.service.discovery.testing.client.MockedReadOnlyDiscoveryClient;
-import com.nesscomputing.testing.lessio.AllowDNSResolution;
-import com.nesscomputing.testing.lessio.AllowLocalFileAccess;
-import com.nesscomputing.testing.lessio.AllowNetworkListen;
+
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.broker.BrokerFactory;
+import org.apache.activemq.broker.BrokerRegistry;
+import org.apache.activemq.broker.BrokerService;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.kitei.testing.lessio.AllowDNSResolution;
+import org.kitei.testing.lessio.AllowNetworkListen;
+import org.kitei.testing.lessio.AllowTmpDirAccess;
 
 @AllowDNSResolution
 @AllowNetworkListen(ports={0})
-@AllowLocalFileAccess(paths={"%TMP_DIR%"})
+@AllowTmpDirAccess
 public class ServiceDiscoveryTransportFactoryTest {
     private static final String QNAME = "disco-test-queue";
     private static final Log LOG = Log.findLog();
@@ -136,7 +136,7 @@ public class ServiceDiscoveryTransportFactoryTest {
             final MessageConsumer consumer = session.createConsumer(session.createQueue(QNAME));
             final Message message = consumer.receive(1000);
 
-            LOG.info(ObjectUtils.toString(message, "<no message>"));
+            LOG.info(Objects.toString(message, "<no message>"));
 
             Assert.assertEquals(uniqueId, ((TextMessage) message).getText());
         } finally {

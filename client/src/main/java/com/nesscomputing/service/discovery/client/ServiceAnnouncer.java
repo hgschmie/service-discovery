@@ -15,15 +15,15 @@
  */
 package com.nesscomputing.service.discovery.client;
 
-import com.nesscomputing.lifecycle.Lifecycle;
-import com.nesscomputing.lifecycle.LifecycleListener;
-import com.nesscomputing.lifecycle.LifecycleStage;
-import com.nesscomputing.logging.Log;
-
 import java.util.Set;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
+
+import com.nesscomputing.lifecycle.Lifecycle;
+import com.nesscomputing.lifecycle.LifecycleListener;
+import com.nesscomputing.lifecycle.LifecycleStage;
+import com.nesscomputing.logging.Log;
 
 /**
  * Announces Services to service discovery.

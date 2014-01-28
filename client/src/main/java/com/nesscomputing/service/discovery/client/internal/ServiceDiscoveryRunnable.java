@@ -15,10 +15,6 @@
  */
 package com.nesscomputing.service.discovery.client.internal;
 
-import com.nesscomputing.logging.Log;
-import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
-import com.nesscomputing.service.discovery.job.ZookeeperProcessingTask;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +22,9 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import javax.annotation.Nonnull;
 
+import com.nesscomputing.logging.Log;
+import com.nesscomputing.service.discovery.client.DiscoveryClientConfig;
+import com.nesscomputing.service.discovery.job.ZookeeperProcessingTask;
 
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;

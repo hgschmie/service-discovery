@@ -18,12 +18,11 @@ package com.nesscomputing.service.discovery.client;
 import java.util.Map;
 import java.util.UUID;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.nesscomputing.service.discovery.client.ServiceInformation;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public class TestServiceInformation
 {
